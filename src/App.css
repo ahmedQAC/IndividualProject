@@ -9,13 +9,38 @@
 
 .App-header {
   background-color: #282c34;
-  min-height: 100vh;
+  max-height: 21vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+}
+
+.body {
+  background-color: red;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: left;
+  font-size: calc(10px + 2vmin);
+  color: white;
+  text-align: left;
+}
+
+h1 { 
+  margin-block-start: 0em;
+  margin-block-end: 0em;
+   }
+p {    
+  margin-top: 0em;
+  margin-bottom: 0.1em;
+  }
+
+.nav-bar{
+border:2px solid Tomato;
 }
 
 .App-link {
