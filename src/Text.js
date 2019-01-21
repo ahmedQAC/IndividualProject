@@ -5,7 +5,7 @@ class Text extends Component{
         return(
             <div>
                 {this.props.text}
-                </div>
+            </div>
         )
     }
 }

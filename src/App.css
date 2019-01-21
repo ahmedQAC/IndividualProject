@@ -39,6 +39,9 @@ p {
   margin-bottom: 0.1em;
   }
 
+.nav-bar{
+border:2px solid Tomato;
+}
 
 .App-link {
   color: #61dafb;
