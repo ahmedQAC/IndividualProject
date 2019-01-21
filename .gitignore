@@ -1,11 +1,1 @@
-package.json
-*package.json
-*.json
-package-lock.json
-*package-lock.json
-
-README.md
-*README.md
-/public
-
 /node_modules
