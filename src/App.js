@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Text from './Text.js';
-import PageContent from './PageContent.js';
+import {BrowserRouter, Route} from 'react-router-dom';
+import Home from './Home';
+import YourIngredients from './YourIngredients';
 
 class App extends Component {
   constructor(){
@@ -28,14 +30,8 @@ class App extends Component {
   render() {
     return (
       <div>
-            <div className="nav-bar">
-              <body>
-                  <div>
-                    <PageContent />
-                </div>
-
-             </body>
-            </div>
+        <BrowserRouter>
+        <div>
        <div className="App">
         <header className="App-header">
 
@@ -44,11 +40,10 @@ class App extends Component {
         </header>
 
         <div>
-
-
             <div>
          <body>
-
+           <Home/>
+            <Route path={"/home"} component={Home} />
            <form>
              <label>
                 <br/> Enter Name:<input type="text" onChange={this.updateText} />
@@ -75,7 +70,8 @@ class App extends Component {
       //     >
       //       Learn React
       //     </a> */}
-
+      </div>
+</BrowserRouter>
       // </div>
 
     );
