@@ -1,22 +1,18 @@
 import React, { Component } from 'react';
 
-class Home extends Component{
+class Content extends Component{
     render(){
         return(
-            <div> 
-                <body>
-                    <br/>  
-                hello
-                {/* <ul>
-                    <li><a class="active" href="/">Home</a></li>
+            <div>   
+                <ul>
+                    <li><a class="active" href="/home">Home</a></li>
                     <li><a href="/YourIngredients">Your Ingredients</a></li>
                     <li><a href="Food">Food</a></li>
                     <li><a href="Macros">Macros</a></li>
-                </ul> */}
-                </body>
+                </ul>
             </div>
 
         )
     }
 }
-export default Home;
+export default Content;
