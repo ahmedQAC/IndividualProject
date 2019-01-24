@@ -22,9 +22,9 @@ class App extends Component {
         <div>
             <div>
          <body>
-           <Route path={"/"} component={Content} />
+           <Route exact path={"/"} component={Content} />
              <Route path={"/home"} component={Home} /> 
-             <Route path={"/YourIngredients"} component={YourIngredients} />
+             <Route path={"/yourIngredients"} component={YourIngredients} />
              <SearchBar/>
               <br/><br/> 
           <p><Text text="What do you want to achieve"/></p>

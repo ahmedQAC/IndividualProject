@@ -5,8 +5,8 @@ class YourIngredients extends Component{
         return(
             <div>   
                 <ul>
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#news">Your Ingredients</a></li>
+                    <li><a href="/home">Home</a></li>
+                    <li><a class="active" href="/YourIngredients">Your Ingredients</a></li>
                     <li><a href="#contact">Food</a></li>
                     <li><a href="#about">Macros</a></li>
                 </ul>

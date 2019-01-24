@@ -5,14 +5,12 @@ class Home extends Component{
         return(
             <div> 
                 <body>
-                    <br/>  
-                hello
-                {/* <ul>
+                 <ul>
                     <li><a class="active" href="/">Home</a></li>
                     <li><a href="/YourIngredients">Your Ingredients</a></li>
                     <li><a href="Food">Food</a></li>
                     <li><a href="Macros">Macros</a></li>
-                </ul> */}
+                </ul> 
                 </body>
             </div>
 
