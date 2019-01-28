@@ -8,19 +8,19 @@ class ContentPage extends Component {
             <div>
 
                 <ul>
-                    <li><a class="active" href="/home">Home</a></li>
+                    <li><a className="active" href="/home">Home</a></li>
                     <li><a href="/YourIngredientsPage">Your Ingredients</a></li>
                     <li><a href="/AddIngredientPage">Add a new Ingredient</a></li>
                     <li><a href="/DeleteIngredientPage">Delete Ingredient</a></li>
                     <li><a href="Food">Food</a></li>
                     <li><a href="Macros">Macros</a></li>
                 </ul>
-                <body>
+                <div>
                     <SearchBar />
                     <br /><br />
-                    <p><Text text="What do you want to achieve" /></p>
-                    <p><Text text="Everything" /></p>
-                </body>
+                    <Text text="What do you want to achieve" />
+                    <Text text="Everything" />
+                </div>
             </div>
 
         )

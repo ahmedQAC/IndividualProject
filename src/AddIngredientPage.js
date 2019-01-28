@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Text from './Text.js';
-import GetAllIngredients from './GetAllIngredients.js';
 import AddIngredient from './AddIngredient.js';
 
 class AddIngredientPage extends Component {
@@ -15,11 +14,11 @@ class AddIngredientPage extends Component {
                     <li><a href="#contact">Food</a></li>
                     <li><a href="#about">Macros</a></li>
                 </ul>
-                <body>
+                <div>
                     <br /><br />
-                    <p><Text text="Enter the corresponding information in the fields to add an ingredient" /></p>
+                    <Text text="Enter the corresponding information in the fields to add an ingredient" />
                     <AddIngredient />
-                </body>
+                </div>
             </div>
 
         )

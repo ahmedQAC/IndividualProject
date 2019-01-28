@@ -14,11 +14,11 @@ class YourIngredientsPage extends Component {
                     <li><a href="#contact">Food</a></li>
                     <li><a href="#about">Macros</a></li>
                 </ul>
-                <body>
+                <div>
                     <br /><br />
-                    <p><Text text="Here is a list of all your ingredients" /></p>
+                    <Text text="Here is a list of all your ingredients" />
                     <GetAllIngredients />
-                </body>
+                </div>
             </div>
 
         )

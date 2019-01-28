@@ -14,11 +14,11 @@ class HomePage extends Component {
                     <li><a href="Food">Food</a></li>
                     <li><a href="Macros">Macros</a></li>
                 </ul>
-                <body>
+                <div>
                     <SearchBar />
                     <br /><br />
-                    <p><Text text="Here is a list of recently added ingredients" /></p>
-                </body>
+                    <Text text="Here is a list of recently added ingredients" />
+                </div>
             </div>
 
         )

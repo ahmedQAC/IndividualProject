@@ -44,8 +44,8 @@ render() {
             <form>
                 <label>
                     
-                    Enter Name:<input type ="text" onChange={this.addName} />
-                    <br />Enter Weight:<input type="text" onChange={this.addWeight} />
+                    <input type ="text" placeholder="Enter Name" onChange={this.addName} />
+                    <br /><input type="text" placeholder="Enter Weight" onChange={this.addWeight} />
                     <br /><button type="button" onClick={this.addIngredient}>Add Ingredient</button>
                     <Text text={this.state.message}/>
                 </label>

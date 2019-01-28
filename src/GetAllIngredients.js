@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Text from './Text.js';
 import axios from 'axios';
 
 class getAllIngredients extends Component {

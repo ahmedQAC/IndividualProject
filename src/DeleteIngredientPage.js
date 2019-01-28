@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import Text from './Text.js';
-import GetAllIngredients from './GetAllIngredients.js';
-import AddIngredient from './AddIngredient.js';
+import DeleteIngredient from './DeleteIngredient.js';
 
 class DeleteIngredientPage extends Component {
     render() {
@@ -15,10 +14,11 @@ class DeleteIngredientPage extends Component {
                     <li><a href="#contact">Food</a></li>
                     <li><a href="#about">Macros</a></li>
                 </ul>
-                <body>
+                <div>
                     <br /><br />
-                    <p><Text text="Enter ingredient ID to delete" /></p>
-                </body>
+                    <Text text="Enter ingredient ID to delete" />
+                    <DeleteIngredient/>
+                </div>
             </div>
 
         )
