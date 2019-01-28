@@ -3,10 +3,12 @@ import logo from './logo.svg';
 import './App.css';
 import Text from './Text.js';
 import { BrowserRouter, Route } from 'react-router-dom';
-import Home from './Home';
-import YourIngredients from './YourIngredients';
-import Content from './Content.js';
+import HomePage from './HomePage';
+import YourIngredientsPage from './YourIngredientsPage';
+import ContentPage from './ContentPage.js';
 import SearchBar from './SearchBar.js';
+import AddIngredientPage from './AddIngredientPage.js';
+import DeleteIngredientPage from './DeleteIngredientPage.js';
 
 class App extends Component {
   render() {
@@ -20,9 +22,11 @@ class App extends Component {
             </header>
             <div>
               <body>
-                <Route exact path={"/"} component={Content} />
-                <Route path={"/home"} component={Home} />
-                <Route path={"/yourIngredients"} component={YourIngredients} />
+                <Route exact path={"/"} component={ContentPage} />
+                <Route path={"/home"} component={HomePage} />
+                <Route path={"/yourIngredientsPage"} component={YourIngredientsPage} />
+                <Route path={"/addIngredientPage"} component={AddIngredientPage} />
+                <Route path={"/DeleteIngredientPage"} component={DeleteIngredientPage} />
               </body>
             </div>
           </div>
