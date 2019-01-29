@@ -30,8 +30,8 @@ render() {
             <form>
                 <label>
                     
-                    <input type ="text" placeholder="Enter ID" onChange={this.handleInputID} />
-                    <br /><button type="submit" onClick={this.deleteIngredient}>Delete Ingredient</button>
+                    <input type ="text" placeholder="Enter ID" name="Enter ID" onChange={this.handleInputID} />
+                    <br /><button type="submit" name="submit" onClick={this.deleteIngredient}>Delete Ingredient</button>
                     <Text text={this.state.message}/>
                 </label>
                             

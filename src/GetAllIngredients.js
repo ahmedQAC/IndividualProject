@@ -15,9 +15,10 @@ class getAllIngredients extends Component {
             }).then(response => {
                 console.log(response.data);
                 this.setState({
-                     ingredients: response.data }); //this.state.inputText
-                    
-                })
+                    ingredients: response.data
+                }); //this.state.inputText
+
+            })
         }
     }
     render() {
@@ -25,16 +26,15 @@ class getAllIngredients extends Component {
             <div>
                 <form>
                     <label>
-                       <button type="button" onClick={this.getAllIngredients}>Get all Ingredients</button>
+                        <button type="button" name="button" onClick={this.getAllIngredients}>Get all Ingredients</button>
                     </label>
                 </form>
-                {(this.state.ingredients.map((text) =>
-                  <div key={text.ingredientID}> {/*Each child in an array or iterator should have a unique "key" prop. See https://fb.me/react-warning-keys for more information. */}
-                    <br/><br/>
-                    IngredientID: {" " + text.ingredientID + " "}
-                    Name: {" " + text.name + " "}
-                    Weight: {" " + text.weight + " "}
-                    
+                {(this.state.ingredients.map((values) =>
+                    <div key={values.ingredientID}> {/*Each child in an array or iterator should have a unique "key" prop. See https://fb.me/react-warning-keys for more information. */}
+                        <br /><br />
+                        IngredientID: {" " + values.ingredientID + " "}
+                        Name: {" " + values.name + " "}
+                        Weight: {" " + values.weight + " "}
                     </div>)
                 )}
             </div>

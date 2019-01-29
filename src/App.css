@@ -41,6 +41,10 @@ ul {
 li {
   float: left;
 }
+.loginSignup {
+  float: right;
+}
+
 
 li a {
   display: block;

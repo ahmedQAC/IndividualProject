@@ -26,8 +26,8 @@ class SearchBar extends Component{
             <div>
             <form>
              <label>
-                <br/> Enter Name:<input type="text" onChange={this.updateText} />
-                <button type="button" onClick={this.setText}>UpdateText</button>                
+                <br/> Enter Name:<input type="text" name="Enter Name" onChange={this.updateText} />
+                <button type="button" name="button" onClick={this.setText}>UpdateText</button>                
                 <Text text={this.state.displayText} />
              </label>
             </form>

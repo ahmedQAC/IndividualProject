@@ -12,8 +12,9 @@ class ContentPage extends Component {
                     <li><a href="/YourIngredientsPage">Your Ingredients</a></li>
                     <li><a href="/AddIngredientPage">Add a new Ingredient</a></li>
                     <li><a href="/DeleteIngredientPage">Delete Ingredient</a></li>
-                    <li><a href="Food">Food</a></li>
-                    <li><a href="Macros">Macros</a></li>
+                    <li><a href="/UpdateIngredientPage">Update Ingredient</a></li>
+                    {/* <li><a href="Food">Food</a></li>
+                    <li><a href="Macros">Macros</a></li> */}
                 </ul>
                 <div>
                     <SearchBar />
