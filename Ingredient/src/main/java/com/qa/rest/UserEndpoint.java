@@ -10,7 +10,7 @@ import javax.ws.rs.Produces;
 
 import com.qa.service.UserService;
 
-@Path("/ingredient")
+@Path("/user")
 public class UserEndpoint {
 
 	@Inject
@@ -19,7 +19,7 @@ public class UserEndpoint {
 	@Path("/getUser/{userID}")
 	@GET
 	@Produces({ "application/json" })
-	public String findUser(@PathParam("userID") Long userID) {
+	public String getUser(@PathParam("userID") Long userID) {
 		return service.getUser(userID);
 	}
 	

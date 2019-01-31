@@ -44,6 +44,13 @@ public class IngredientEndpoint {
 		return service.updateIngredient(ingredientID, ingredient);
 	}
 	
+	@Path("/getUserIngredients/{userID}")
+	@GET
+	@Produces({ "application/json" })
+	public String getUserIngredients(@PathParam("userID") Long userID) {
+		return service.getUserIngredients(userID);
+	}
+	
 	public void setService(IngredientService ingredient) {
 		this.service = service;
 	}

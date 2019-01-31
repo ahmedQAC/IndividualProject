@@ -14,10 +14,20 @@ public class Ingredient {
 	private String name;
 	private String weight;
 	
+	private Long userID;
+	
 	public Ingredient() {
 		
 	}
 	
+	public Long getUserID() {
+		return userID;
+	}
+
+	public void setUserID(Long userID) {
+		this.userID = userID;
+	}
+
 	public Ingredient(String name, String weight) {
 		this.name=name;
 		this.weight=weight;

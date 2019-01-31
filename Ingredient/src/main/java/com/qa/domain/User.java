@@ -47,4 +47,13 @@ public class User {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+
+	public List<Ingredient> getIngredients() {
+		return ingredients;
+	}
+
+	public void setIngredients(List<Ingredient> ingredients) {
+		this.ingredients = ingredients;
+	}
+	
 }

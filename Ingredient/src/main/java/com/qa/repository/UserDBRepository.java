@@ -3,6 +3,8 @@ package com.qa.repository;
 import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
+import java.util.Collection;
+
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
 import javax.persistence.EntityManager;
@@ -10,6 +12,7 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import javax.transaction.Transactional;
 
+import com.qa.domain.Ingredient;
 import com.qa.domain.User;
 import com.qa.util.JSONUtil;
 @Transactional(SUPPORTS)
@@ -38,7 +41,6 @@ public class UserDBRepository implements UserRepository {
 	}
 
 	@Transactional(REQUIRED)
-	@Override
 	public String createUser(String user) {
 		User aUser = util.getObjectForJSON(user, User.class);
 		manager.persist(aUser);
@@ -46,7 +48,6 @@ public class UserDBRepository implements UserRepository {
 	}
 
 	@Transactional(REQUIRED)
-	@Override
 	public String deleteUser(Long userID) {
 		String output = "{\"message\": \"The user cannot be found\"}";
 		User aUser = findUser(userID);
@@ -58,10 +59,16 @@ public class UserDBRepository implements UserRepository {
 	}
 	
 	@Transactional(REQUIRED)
-	@Override
 	public String updateUser(Long userID, String user) {
 		// TODO Auto-generated method stub
 		return null;
+	}
+
+
+	public String getAllUsers() {
+		Query query = manager.createQuery("Select a FROM Ingredient a");
+		Collection<User> users = (Collection<User>) query.getResultList();
+		return util.getJSONForObject(users);
 	}
 
 

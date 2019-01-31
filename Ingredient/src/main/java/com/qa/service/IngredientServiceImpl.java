@@ -29,4 +29,8 @@ public class IngredientServiceImpl implements IngredientService {
 	public String deleteIngredient(Long ingredientID) {
 		return repo.deleteIngredient(ingredientID);
 	}
+
+	public String getUserIngredients(Long userID) {
+		return repo.getUserIngredients(userID);
+	}
 }

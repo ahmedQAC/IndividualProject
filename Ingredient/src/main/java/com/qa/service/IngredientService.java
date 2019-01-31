@@ -13,4 +13,6 @@ public interface IngredientService {
 	String updateIngredient(Long ingredientID, String ingredient);
 	
 	String deleteIngredient(Long ingredientID);
+	
+	String getUserIngredients(Long userID);
 }
