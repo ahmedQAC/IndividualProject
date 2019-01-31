@@ -65,7 +65,5 @@ public class IngredientDBRepository implements IngredientRepository {
 	}
 
 
-	
-
 
 }
