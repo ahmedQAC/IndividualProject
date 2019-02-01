@@ -13,6 +13,8 @@ class ContentPage extends Component {
                     <li><a href="/AddIngredientPage">Add a new Ingredient</a></li>
                     <li><a href="/DeleteIngredientPage">Delete Ingredient</a></li>
                     <li><a href="/UpdateIngredientPage">Update Ingredient</a></li>
+                    <li className="loginSignup"><a href="/Login">Login</a></li>
+                    <li className="loginSignup"><a href="/Signup">Signup</a></li>
                     {/* <li><a href="Food">Food</a></li>
                     <li><a href="Macros">Macros</a></li> */}
                 </ul>

@@ -16,7 +16,7 @@ class getAllIngredients extends Component {
                 console.log(response.data);
                 this.setState({
                     ingredients: response.data
-                }); //this.state.inputText
+                });
 
             })
         }

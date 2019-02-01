@@ -8,6 +8,7 @@ import ContentPage from './ContentPage.js';
 import AddIngredientPage from './AddIngredientPage.js';
 import DeleteIngredientPage from './DeleteIngredientPage.js';
 import UpdateIngredientPage from './UpdateIngredientPage.js';
+import Signup from './Signup.js';
 
 class App extends Component {
   render() {
@@ -26,6 +27,7 @@ class App extends Component {
                 <Route path={"/addIngredientPage"} component={AddIngredientPage} />
                 <Route path={"/DeleteIngredientPage"} component={DeleteIngredientPage} />
                 <Route path={"/UpdateIngredientPage"} component={UpdateIngredientPage} />
+                <Route path={"/Signup"} component={Signup} />
             </div>
           </div>
         </BrowserRouter>
