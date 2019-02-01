@@ -1,83 +1,35 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import Text from './Text.js';
-import PageContent from './PageContent.js';
+import { BrowserRouter, Route } from 'react-router-dom';
+import HomePage from './HomePage';
+import YourIngredientsPage from './YourIngredientsPage';
+import ContentPage from './ContentPage.js';
+import AddIngredientPage from './AddIngredientPage.js';
+import DeleteIngredientPage from './DeleteIngredientPage.js';
+import UpdateIngredientPage from './UpdateIngredientPage.js';
 
 class App extends Component {
-  constructor(){
-    super();
-    this.state={
-      inputText: "",
-      displayText: ""
-    }
-
-    this.updateText = (event) => {
-        this.setState({
-            inputText: event.target.value
-        });
-    }
-
-    this.setText = () => {
-        this.setState({
-            displayText: this.state.inputText
-        });
-    }
-
-  }
   render() {
     return (
       <div>
-            <div className="nav-bar">
-              <body>
-                  <div>
-                    <PageContent />
-                </div>
-
-             </body>
-            </div>
-       <div className="App">
-        <header className="App-header">
-
-          <h1><Text text="Welcome to my Website"/></h1>
-          <p><Text text="You are able to list all foods you can make with the ingredients you have"/></p>
-        </header>
-
-        <div>
-
-
+        <BrowserRouter>
+          <div className="App">
+            <header className="App-header">
+              {/* <h1><Text text="Welcome to my Website"/></h1> */}
+              <Text text="You are able to list all foods you can make with the ingredients you currently have" />
+            </header>
             <div>
-         <body>
-
-           <form>
-             <label>
-                <br/> Enter Name:<input type="text" onChange={this.updateText} />
-                <button type="button" onClick={this.setText}>UpdateText</button>                
-                <Text text={this.state.displayText} />
-            </label>
-             </form>
-             <br/><br/>
-          <p><Text text="What do you want to achieve"/></p>
-          <p><Text text="Everything"/></p>
-          </body>
+                <Route exact path={"/"} component={ContentPage} />
+                <Route path={"/home"} component={HomePage} />
+                <Route path={"/yourIngredientsPage"} component={YourIngredientsPage} />
+                <Route path={"/addIngredientPage"} component={AddIngredientPage} />
+                <Route path={"/DeleteIngredientPage"} component={DeleteIngredientPage} />
+                <Route path={"/UpdateIngredientPage"} component={UpdateIngredientPage} />
+            </div>
           </div>
-          </div>
-          </div>
-      {/* //     <img src={logo} className="App-logo" alt="logo" />
-      //     <p>
-      //       Edit <code>src/App.js</code> and save to reload.
-      //     </p>
-      //     <a
-      //       className="App-link"
-      //       href="https://reactjs.org"
-      //       target="_blank"
-      //       rel="noopener noreferrer"
-      //     >
-      //       Learn React
-      //     </a> */}
-
-      // </div>
-
+        </BrowserRouter>
+      </div>
     );
   }
 }
