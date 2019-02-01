@@ -8,6 +8,8 @@ public interface UserService {
 	
 	String getUser(Long userID);
 	
+	String getAllUsers();
+	
 	String createUser(String user);
 	
 	String updateUser(Long userID, String user);

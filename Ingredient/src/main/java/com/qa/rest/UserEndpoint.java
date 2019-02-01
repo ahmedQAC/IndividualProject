@@ -36,4 +36,11 @@ public class UserEndpoint {
 	public String deleteUser(@PathParam("userID") Long userID) {
 		return service.deleteUser(userID);
 	}
+	
+	@Path("/getAllUsers")
+	@GET
+	@Produces({ "application/json" })
+	public String getAllUsers() {
+		return service.getAllUsers();
+	}
 }

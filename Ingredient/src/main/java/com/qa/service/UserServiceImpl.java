@@ -35,6 +35,11 @@ public class UserServiceImpl implements UserService {
 		return repo.deleteUser(userID);
 	}
 
+	@Override
+	public String getAllUsers() {
+		return repo.getAllUsers();
+	}
+
 
 
 }

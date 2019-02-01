@@ -4,6 +4,7 @@ import static javax.transaction.Transactional.TxType.REQUIRED;
 import static javax.transaction.Transactional.TxType.SUPPORTS;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
@@ -34,6 +35,10 @@ public class UserDBRepository implements UserRepository {
 	public String getUser(Long userID) {
 		String output = "{\"message\": \"The user cannot be found\"}";
 		User aUser = findUser(userID);
+//		Query query = manager.createQuery("Select a FROM Ingredient a");
+//		Collection<User> users = (Collection<User>) query.getResultList();
+//		Collection<User> userIngredients = users.stream().filter(ingredient -> ingredient.getUserID()==userID).collect(Collectors.toList());
+
 		if (aUser!=null) {
 			output = util.getJSONForObject(aUser);
 		}
@@ -66,7 +71,7 @@ public class UserDBRepository implements UserRepository {
 
 
 	public String getAllUsers() {
-		Query query = manager.createQuery("Select a FROM Ingredient a");
+		Query query = manager.createQuery("Select a FROM User a");
 		Collection<User> users = (Collection<User>) query.getResultList();
 		return util.getJSONForObject(users);
 	}
