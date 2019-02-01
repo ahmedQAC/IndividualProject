@@ -1,6 +1,7 @@
 package com.qa.repository;
 
 import java.util.Collection;
+import java.util.stream.Collectors;
 
 import javax.enterprise.inject.Default;
 import javax.inject.Inject;
@@ -64,8 +65,14 @@ public class IngredientDBRepository implements IngredientRepository {
 		return output;
 	}
 
+	@Override
+	public String getUserIngredients(Long userID) {
+		Query query = manager.createQuery("Select a FROM Ingredient a");
+		Collection<Ingredient> ingredients = (Collection<Ingredient>) query.getResultList();
+		Collection<Ingredient> userIngredients = ingredients.stream().filter(ingredient -> ingredient.getUserID().equals(userID)).collect(Collectors.toList());
+		return util.getJSONForObject(userIngredients);
+	}
 
 	
-
 
 }
