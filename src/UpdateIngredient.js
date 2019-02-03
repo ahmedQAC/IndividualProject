@@ -9,6 +9,7 @@ class AddIngredient extends Component {
             ingredientID: "",
             name: "",
             weight: "",
+            userID: JSON.parse(sessionStorage.getItem("User")).userID,
             message: ""
         }
     }
@@ -35,7 +36,8 @@ class AddIngredient extends Component {
                 url: 'http://localhost:8080/Ingredient/api/ingredient/updateIngredient/'+this.state.ingredientID,
                 data: {
                     name: this.state.name, 
-                    weight: this.state.weight
+                    weight: this.state.weight,
+                    userID: this.state.userID
                 }
             });
             console.log("successfully updated the ingredient with the new information: \n" +

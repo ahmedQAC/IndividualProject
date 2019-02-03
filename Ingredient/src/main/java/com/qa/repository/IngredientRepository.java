@@ -12,7 +12,7 @@ public interface IngredientRepository {
 	
 	String updateIngredient(Long ingredientID, String ingredient);
 	
-	String deleteIngredient(Long ingredientID);
+	String deleteIngredient(Long ingredientID, Long userID);
 	
 	String getUserIngredients(Long userID);
 }

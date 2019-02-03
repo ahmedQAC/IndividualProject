@@ -5,21 +5,23 @@ class getAllIngredients extends Component {
     constructor() {
         super();
         this.state = {
-            ingredients: []
+            ingredients: [],
+            userID: JSON.parse(sessionStorage.getItem("User")).userID
         }
     }
     getAllIngredients = () => {
         axios({
             method: 'get',
-            url: 'http://localhost:8080/Ingredient/api/ingredient/getAllIngredients',
+            // url: 'http://localhost:8080/Ingredient/api/ingredient/getAllIngredients',
+            url: 'http:localhost:8080/Ingredient/api/ingredient/getUserIngredients/' + this.state.userID,
             responseType: 'json'
         }).then(response => {
-            console.log(response.data);
-            this.setState({
-                ingredients: response.data
-            });
+                console.log(response.data);
+                this.setState({
+                    ingredients: response.data
+                });
 
-        })
+            })
     }
     render() {
         return (

@@ -26,8 +26,8 @@ public class IngredientServiceImpl implements IngredientService {
 		return repo.updateIngredient(ingredientID, ingredient);
 	}
 
-	public String deleteIngredient(Long ingredientID) {
-		return repo.deleteIngredient(ingredientID);
+	public String deleteIngredient(Long ingredientID, Long userID) {
+		return repo.deleteIngredient(ingredientID, userID);
 	}
 
 	public String getUserIngredients(Long userID) {

@@ -6,7 +6,8 @@ class DeleteIngredient extends Component {
     constructor() {
         super();
         this.state = {
-            ingredientID: ""
+            ingredientID: "",
+            userID: JSON.parse(sessionStorage.getItem("User")).userID
         }
     }
         handleInputID = (event) => {
@@ -17,10 +18,10 @@ class DeleteIngredient extends Component {
         deleteIngredient = () => {
             axios({
                 method: 'delete',
-                url: 'http://localhost:8080/Ingredient/api/ingredient/deleteIngredient/'+this.state.ingredientID,
-                data: {
-                    ingredientID: this.state.name
-                }
+                url: 'http://localhost:8080/Ingredient/api/ingredient/deleteIngredient/'+this.state.ingredientID+'/'+this.state.userID,
+                // data: {
+                //     ingredientID: this.state.name
+                // }
             });
         }
 

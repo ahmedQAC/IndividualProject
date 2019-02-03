@@ -30,11 +30,11 @@ public class IngredientEndpoint {
 		return service.addIngredient(ingredient);
 	}
 	
-	@Path("/deleteIngredient/{ingredientID}")
+	@Path("/deleteIngredient/{ingredientID}/{userID}")
 	@DELETE
 	@Produces({ "application/json" })
-	public String deleteIngredient(@PathParam("ingredientID") Long ingredientID) {
-		return service.deleteIngredient(ingredientID);
+	public String deleteIngredient(@PathParam("ingredientID") Long ingredientID, @PathParam("userID") Long userID) {
+		return service.deleteIngredient(ingredientID, userID);
 	}
 	
 	@Path("/updateIngredient/{ingredientID}")
