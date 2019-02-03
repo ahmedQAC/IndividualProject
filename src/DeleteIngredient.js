@@ -8,12 +8,13 @@ class DeleteIngredient extends Component {
         this.state = {
             ingredientID: ""
         }
-        this.handleInputID = (event) => {
+    }
+        handleInputID = (event) => {
             this.setState({
                 ingredientID: event.target.value
             });
-
-        this.deleteIngredient = () => {
+        }
+        deleteIngredient = () => {
             axios({
                 method: 'delete',
                 url: 'http://localhost:8080/Ingredient/api/ingredient/deleteIngredient/'+this.state.ingredientID,
@@ -22,8 +23,7 @@ class DeleteIngredient extends Component {
                 }
             });
         }
-    }
-    }
+
 render() {
     return (
         <div>

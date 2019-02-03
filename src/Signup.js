@@ -9,41 +9,36 @@ class Signup extends Component {
         this.state = {
             username: "",
             password: "",
-        }
-
-        this.handleInput = (event) => {
-            this.setState({
-                [event.target.id]: event.target.value
-            });
-        }
-
-        this.addUser = () => {
-            axios({
-                method: 'post',
-                url: 'http://localhost:8080/Ingredient/api/user/createUser',
-                data: {
-                    username: this.state.username,
-                    password: this.state.password,
-                    ingredients: []
-                }
-            });
+            validateUser: JSON.parse(sessionStorage.getItem("User"))
         }
     }
+
+    handleInput = (event) => {
+        this.setState({
+            [event.target.id]: event.target.value
+        });
+    }
+
+    addUser = () => {
+        axios({
+            method: 'post',
+            url: 'http://localhost:8080/Ingredient/api/user/createUser',
+            data: {
+                username: this.state.username,
+                password: this.state.password,
+                ingredients: []
+            }
+        });
+    }
     render() {
-        return (
-            <div>
-                <ul>
-                    <li><a href="/home">Home</a></li>
-                    <li><a href="/YourIngredientsPage">Your Ingredients</a></li>
-                    <li><a href="/AddIngredientPage">Add a new Ingredient</a></li>
-                    <li><a href="/DeleteIngredientPage">Delete Ingredient</a></li>
-                    <li><a href="/UpdateIngredientPage">Update Ingredient</a></li>
-                    <li className="loginSignup"><a href="/Login">Login</a></li>
-                    <li className="loginSignup"><a href="/Signup">Signup</a></li>
-                    {/* <li><a href="Food">Food</a></li>
-                    <li><a href="Macros">Macros</a></li> */}
-                </ul>
+        if (this.state.validateUser === null) {
+            return (
                 <div>
+                    <ul>
+                        <li><a href="/Home">Home</a></li>
+                        <li className="loginSignup"><a href="/Login">Login</a></li>
+                        <li className="loginSignup"><a className="active" href="/Signup">Signup</a></li>
+                    </ul>
                     <h5><Text text="Signup" /></h5>
                     <form>
                         <label>
@@ -51,15 +46,31 @@ class Signup extends Component {
                             <br /> <input type="text" id="password" placeholder="Enter password" onChange={this.handleInput} />
                             {/* <br /> <input type="text" name="Confirm password" placeholder="Confirm password" onChnage={this.handleInput} /> */}
                             <br /> <button type="button" onClick={this.addUser}>Create create </button>
-                            </label>
-                        </form>
-                        <br /><br />
+                        </label>
+                    </form>
+                    <br /><br />
 
-                        <Text text="Everything" />
+                    <Text text="Everything" />
                 </div>
-                </div>
+            );
+        }
+        // return (
+        //     <div>
+        //         <ul>
+        //             <li><a href="/home">Home</a></li>
+        //             <li><a href="/YourIngredientsPage">Your Ingredients</a></li>
+        //             <li><a href="/AddIngredientPage">Add a new Ingredient</a></li>
+        //             <li><a href="/DeleteIngredientPage">Delete Ingredient</a></li>
+        //             <li><a href="/UpdateIngredientPage">Update Ingredient</a></li>
+        //             {/* <li><a href="Food">Food</a></li>
+        //             <li><a href="Macros">Macros</a></li> */}
+        //         </ul>
+        //         <div>
 
-                )
+        //         </div>
+        //     </div>
+
+        // )
     }
 }
 export default Signup;

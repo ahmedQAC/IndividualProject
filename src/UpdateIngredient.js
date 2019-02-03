@@ -11,24 +11,25 @@ class AddIngredient extends Component {
             weight: "",
             message: ""
         }
-        this.updateIngredientID = (event) => {
+    }
+        updateIngredientID = (event) => {
             this.setState({
                 ingredientID: event.target.value
             });
         }
 
-        this.updateName = (event) => {
+        updateName = (event) => {
             this.setState({
                 name: event.target.value
             });
         }
-        this.updateWeight = (event) => {
+        updateWeight = (event) => {
             this.setState({
                 weight: event.target.value
             });
         }
 
-        this.updateIngredient = () => {
+        updateIngredient = () => {
             axios({
                 method: 'post',
                 url: 'http://localhost:8080/Ingredient/api/ingredient/updateIngredient/'+this.state.ingredientID,
@@ -44,7 +45,7 @@ class AddIngredient extends Component {
                 message: "successfully updated ingredient"
             });
         }
-    }
+
 render() {
     return (
         <div>

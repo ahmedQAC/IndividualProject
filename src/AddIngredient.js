@@ -10,18 +10,19 @@ class AddIngredient extends Component {
             weight: "",
             message: ""
         }
-        this.addName = (event) => {
+    }
+        addName = (event) => {
             this.setState({
                 name: event.target.value
             });
         }
-        this.addWeight = (event) => {
+        addWeight = (event) => {
             this.setState({
                 weight: event.target.value
             });
         }
 
-        this.addIngredient = () => {
+        addIngredient = () => {
             axios({
                 method: 'post',
                 url: 'http://localhost:8080/Ingredient/api/ingredient/addIngredient',
@@ -37,19 +38,16 @@ class AddIngredient extends Component {
                 message: "successfully added ingredient"
             });
         }
-    }
 render() {
     return (
         <div>
             <form>
                 <label>
-                    
                     <input type ="text" placeholder="Enter Name" name="Enter Name" onChange={this.addName} />
                     <br /><input type="text" placeholder="Enter Weight" name="Enter Weight" onChange={this.addWeight} />
                     <br /><button type="button" name="button" onClick={this.addIngredient}>Add Ingredient</button>
                     <Text text={this.state.message}/>
-                </label>
-                            
+                </label>        
             </form>
             <form>
                 

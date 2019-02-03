@@ -7,19 +7,19 @@ class getAllIngredients extends Component {
         this.state = {
             ingredients: []
         }
-        this.getAllIngredients = () => {
-            axios({
-                method: 'get',
-                url: 'http://localhost:8080/Ingredient/api/ingredient/getAllIngredients',
-                responseType: 'json'
-            }).then(response => {
-                console.log(response.data);
-                this.setState({
-                    ingredients: response.data
-                });
+    }
+    getAllIngredients = () => {
+        axios({
+            method: 'get',
+            url: 'http://localhost:8080/Ingredient/api/ingredient/getAllIngredients',
+            responseType: 'json'
+        }).then(response => {
+            console.log(response.data);
+            this.setState({
+                ingredients: response.data
+            });
 
-            })
-        }
+        })
     }
     render() {
         return (
