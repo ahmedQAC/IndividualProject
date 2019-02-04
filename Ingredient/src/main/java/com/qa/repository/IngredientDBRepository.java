@@ -40,7 +40,7 @@ public class IngredientDBRepository implements IngredientRepository {
 	public String addIngredient(String ingredient) {
 		Ingredient anIngredient = util.getObjectForJSON(ingredient, Ingredient.class);
 		manager.persist(anIngredient);
-		return "{\"message\": \"The ingredient has been sucessfully added\"}";
+		return "The ingredient has been sucessfully added";
 	}
 	
 	@Transactional(REQUIRED)

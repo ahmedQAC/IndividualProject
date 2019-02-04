@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
+import Text from './Text.js';
 
 class AddIngredient extends Component {
     constructor() {
@@ -31,27 +32,29 @@ class AddIngredient extends Component {
                 weight: this.state.weight,
                 userID: this.state.userID
             }
-        });
-        console.log("successfully added the ingredient with the information: \n" +
-            " Name: " + this.state.name + "\n" +
-            " Weight: " + this.state.weight);
-        this.setState({
-            message: "successfully added ingredient"
-        });
+        })
+            .then(response => {
+                console.log(response.data);
+                this.setState({
+                    message: response.data
+                });
+            });
     }
     render() {
         return (
-            <div>
+            <div >
                 <form>
                     <label>
                         <input type="text" placeholder="Enter Name" name="Enter Name" onChange={this.addName} />
                         <br /><input type="text" placeholder="Enter Weight" name="Enter Weight" onChange={this.addWeight} />
                         <br /><button type="button" name="button" onClick={this.addIngredient}>Add Ingredient</button>
-                        <br />{this.state.message}
                     </label>
                 </form>
+                <div>
+                     <Text text ={this.state.message} />
+                    </div>
 
-            </div>
+            </div >
         )
     }
 }

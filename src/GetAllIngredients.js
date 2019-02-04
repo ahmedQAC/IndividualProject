@@ -20,7 +20,7 @@ class getAllIngredients extends Component {
                     ingredients: response.data
                 });
 
-            })
+            });
     }
     render() {
         return (
