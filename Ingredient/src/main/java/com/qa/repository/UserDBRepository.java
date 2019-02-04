@@ -33,7 +33,7 @@ public class UserDBRepository implements UserRepository {
 	}
 	
 	public String getUser(Long userID) {
-		String output = "The user cannot be found";
+		String output = "{\"message\": \"The user cannot be found\"}";
 		User aUser = findUser(userID);
 		if (aUser!=null) {
 			output = util.getJSONForObject(aUser);
@@ -45,16 +45,16 @@ public class UserDBRepository implements UserRepository {
 	public String createUser(String user) {
 		User aUser = util.getObjectForJSON(user, User.class);
 		manager.persist(aUser);
-		return "The User has been sucessfully created";
+		return "{\"message\": \"The User has been sucessfully created\"}";
 	}
 
 	@Transactional(REQUIRED)
 	public String deleteUser(Long userID) {
-		String output = "The user cannot be found";
+		String output = "{\"message\": \"The user cannot be found\"}";
 		User aUser = findUser(userID);
 		if (aUser!=null) {
 			manager.remove(aUser);
-			output = "The user has been sucessfully deleted";
+			output = "{\"message\": \"The user has been sucessfully deleted\"}";
 		}
 		return output;
 	}

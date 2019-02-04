@@ -40,20 +40,17 @@ public class IngredientDBRepository implements IngredientRepository {
 	public String addIngredient(String ingredient) {
 		Ingredient anIngredient = util.getObjectForJSON(ingredient, Ingredient.class);
 		manager.persist(anIngredient);
-		return "The ingredient has been sucessfully added";
+		return "{\"message\": \"The ingredient has been sucessfully added\"}";
 	}
 	
 	@Transactional(REQUIRED)
 	public String deleteIngredient(Long ingredientID, Long userID) {
-		String output = "The ingredient cannot be found";
-		Query query = manager.createQuery("Select a FROM Ingredient a");
-		Collection<Ingredient> ingredients = (Collection<Ingredient>) query.getResultList();
-		Collection<Ingredient> userIngredients = ingredients.stream().filter(ingredient -> ingredient.getUserID()==userID && ingredient.getIngredientID()==ingredientID).collect(Collectors.toList());
-		if (userIngredients!=null) {
-			manager.remove(findAnIngredient(ingredientID));
-			output = "The ingredient has been sucessfully deleted";
+		Ingredient ingredientInDB = findAnIngredient(ingredientID);
+		if ((ingredientInDB != null) && (ingredientInDB.getUserID() == userID)) {
+			manager.remove(ingredientInDB);
+			return "{\"message\": \"The ingredient has been sucessfully deleted\"}";
 		}
-		return output;
+		return "{\"message\": \"The ingredient cannot be found\"}";
 	}
 	
 	public void createIngredient(String ingredient) {
@@ -63,13 +60,13 @@ public class IngredientDBRepository implements IngredientRepository {
 	
 	@Transactional(REQUIRED)
 	public String updateIngredient(Long ingredientID, String ingredient) {
-		String output = "The ingredient cannot be found";
+		String output = "{\"message\": \"The ingredient cannot be found\"}";
 		Ingredient anIngredient = findAnIngredient(ingredientID);
 		if (anIngredient!=null) {
 			Ingredient updatedIngredient = util.getObjectForJSON(ingredient, Ingredient.class);
 			anIngredient.setName(updatedIngredient.getName());
 			anIngredient.setWeight(updatedIngredient.getWeight());
-			output = "The ingredient has been sucessfully updated";
+			output = "{\"message\": \"The ingredient has been sucessfully updated\"}";
 		}
 		return output;
 	}

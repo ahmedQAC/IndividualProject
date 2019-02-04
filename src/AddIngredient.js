@@ -36,7 +36,7 @@ class AddIngredient extends Component {
             .then(response => {
                 console.log(response.data);
                 this.setState({
-                    message: response.data
+                    message: response.data.message
                 });
             });
     }
@@ -51,8 +51,8 @@ class AddIngredient extends Component {
                     </label>
                 </form>
                 <div>
-                     <Text text ={this.state.message} />
-                    </div>
+                    <Text text={this.state.message} />
+                </div>
 
             </div >
         )

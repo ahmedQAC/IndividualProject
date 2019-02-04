@@ -24,11 +24,17 @@ public class IngredientServiceImpl implements IngredientService {
 
 	public String addIngredient(String ingredient) {
 		Ingredient inputIngredient = util.getObjectForJSON(ingredient, Ingredient.class);
-		if (inputIngredient.getName().contains(" ") || inputIngredient.getWeight().contains(" ")) {
-			return "Invalid input, please make sure there are no empty spaces";
+		if (inputIngredient.getName().startsWith(" ") || inputIngredient.getName().endsWith(" ") || inputIngredient.getWeight().startsWith(" ") || inputIngredient.getWeight().endsWith(" ")) {
+			return "{\"message\": \"Invalid input, please make sure there are no empty spaces\"}";
 		}
 		else if (inputIngredient.getName().isEmpty() || inputIngredient.getWeight().isEmpty()) {
-			return "Invalid input, please make sure you fill in the empty fields";
+			return "{\"message\": \"Invalid input, please make sure you fill in the empty fields\"}";
+		}
+		else if (inputIngredient.getWeight().matches("[0-9]+") == false) {
+			return "{\"message\": \"Invalid input, please make sure you use only numbers for weight\"}";
+		}
+		else if (inputIngredient.getName().matches("[0-9]+")) {
+			return "{\"message\": \"Invalid input, please make sure you use only letters for ingredient name\"}";
 		}
 		return repo.addIngredient(ingredient);
 	}

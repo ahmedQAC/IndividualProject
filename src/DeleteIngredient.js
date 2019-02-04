@@ -8,7 +8,7 @@ class DeleteIngredient extends Component {
         this.state = {
             ingredientID: "",
             userID: JSON.parse(sessionStorage.getItem("User")).userID,
-            message: ""
+            message: " "
         }
     }
     handleInputID = (event) => {
@@ -24,7 +24,7 @@ class DeleteIngredient extends Component {
             .then(response => {
                 console.log(response.data);
                 this.setState({
-                    message: response.data
+                    message: response.data.message
                 });
             });
     }
@@ -36,7 +36,7 @@ class DeleteIngredient extends Component {
                     <label>
 
                         <input type="text" placeholder="Enter ID" name="Enter ID" onChange={this.handleInputID} />
-                        <br /><button type="submit" name="submit" onClick={this.deleteIngredient}>Delete Ingredient</button>
+                        <br /><button type="button" name="submit" onClick={this.deleteIngredient}>Delete Ingredient</button>
                     </label>
                 </form>
                 <div>
