@@ -33,12 +33,8 @@ public class UserDBRepository implements UserRepository {
 	}
 	
 	public String getUser(Long userID) {
-		String output = "{\"message\": \"The user cannot be found\"}";
+		String output = "The user cannot be found";
 		User aUser = findUser(userID);
-//		Query query = manager.createQuery("Select a FROM Ingredient a");
-//		Collection<User> users = (Collection<User>) query.getResultList();
-//		Collection<User> userIngredients = users.stream().filter(ingredient -> ingredient.getUserID()==userID).collect(Collectors.toList());
-
 		if (aUser!=null) {
 			output = util.getJSONForObject(aUser);
 		}
@@ -49,16 +45,16 @@ public class UserDBRepository implements UserRepository {
 	public String createUser(String user) {
 		User aUser = util.getObjectForJSON(user, User.class);
 		manager.persist(aUser);
-		return "{\"message\": \"The User has been sucessfully created\"}";
+		return "The User has been sucessfully created";
 	}
 
 	@Transactional(REQUIRED)
 	public String deleteUser(Long userID) {
-		String output = "{\"message\": \"The user cannot be found\"}";
+		String output = "The user cannot be found";
 		User aUser = findUser(userID);
 		if (aUser!=null) {
 			manager.remove(aUser);
-			output = "{\"message\": \"The user has been sucessfully deleted\"}";
+			output = "The user has been sucessfully deleted";
 		}
 		return output;
 	}
