@@ -75,6 +75,7 @@ public class IngredientDBRepository implements IngredientRepository {
 	}
 
 	@Override
+	@Transactional
 	public String getUserIngredients(Long userID) {
 		Query query = manager.createQuery("Select a FROM Ingredient a");
 		Collection<Ingredient> ingredients = (Collection<Ingredient>) query.getResultList();

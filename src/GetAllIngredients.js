@@ -12,8 +12,7 @@ class getAllIngredients extends Component {
     getAllIngredients = () => {
         axios({
             method: 'get',
-            // url: 'http://localhost:8080/Ingredient/api/ingredient/getAllIngredients',
-            url: 'http:localhost:8080/Ingredient/api/ingredient/getUserIngredients/' + this.state.userID,
+            url: 'http://localhost:8080/Ingredient/api/ingredient/getUserIngredients/' + this.state.userID,
             responseType: 'json'
         }).then(response => {
                 console.log(response.data);
@@ -32,7 +31,7 @@ class getAllIngredients extends Component {
                     </label>
                 </form>
                 {(this.state.ingredients.map((values) =>
-                    <div key={values.ingredientID}> {/*Each child in an array or iterator should have a unique "key" prop. See https://fb.me/react-warning-keys for more information. */}
+                    <div key={values.ingredientID}>
                         <br /><br />
                         IngredientID: {" " + values.ingredientID + " "}
                         Name: {" " + values.name + " "}

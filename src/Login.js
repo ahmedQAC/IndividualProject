@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import SearchBar from './SearchBar';
 import Text from './Text.js';
 import axios from 'axios';
 
@@ -47,7 +46,8 @@ class Login extends Component {
     }
     logout = () => {
         sessionStorage.clear();
-        this.props.history.push("/");
+        this.props.history.push("/Login")
+        
     }
 
     render() {
@@ -69,7 +69,7 @@ class Login extends Component {
                                 <br /> <input type="text" id="username" placeholder="Enter username" onChange={this.handleInput} />
                                 <br /> <input type="text" id="password" placeholder="Enter password" onChange={this.handleInput} />
                                 {/* <br /> <input type="text" name="Confirm password" placeholder="Confirm password" onChnage={this.handleInput} /> */}
-                                <br /> <button type="button" onClick={this.login}>Create create </button>
+                                <br /> <button type="button" onClick={this.login}>Login</button>
                             </label>
                         </form>
                     </div>
@@ -79,7 +79,6 @@ class Login extends Component {
         return (
             <div>
                 {this.logout()}
-                {this.props.history.push("/Login")}
             </div>
         )
     }

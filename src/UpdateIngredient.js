@@ -53,21 +53,15 @@ render() {
         <div>
             <form>
                 <label>
-                    <br /><input type ="text" name="Enter IngredientId to update" placeholder="Enter IngredientId to update" onChange={this.updateIngredientID} />
+                    <br /><input type ="text" name="Enter Ingredient ID" placeholder="Enter Ingredient ID" onChange={this.updateIngredientID} />
                     <br /><input type ="text" name="Enter new Name" placeholder="Enter new Name" onChange={this.updateName} />
                     <br /><input type ="text" name="Enter new Weight" placeholder="Enter new Weight" onChange={this.updateWeight} />
                     <br /><button type="button" name="button" onClick={this.updateIngredient}>Update Ingredient</button>
                     <Text text={this.state.message}/>
-                </label>
-                            
+                </label>                            
             </form>
-            <form>
-                
-                </form>
-
-
         </div>
-    )
+    );
 }
 }
 export default AddIngredient;

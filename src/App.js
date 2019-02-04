@@ -18,18 +18,17 @@ class App extends Component {
         <BrowserRouter>
           <div className="App">
             <header className="App-header">
-              {/* <h1><Text text="Welcome to my Website"/></h1> */}
               <Text text="You are able to list all foods you can make with the ingredients you currently have" />
             </header>
             <div>
-                <Route exact path={"/"} component={ContentPage} />
-                <Route path={"/home"} component={HomePage} />
-                <Route path={"/yourIngredientsPage"} component={YourIngredientsPage} />
-                <Route path={"/addIngredientPage"} component={AddIngredientPage} />
-                <Route path={"/DeleteIngredientPage"} component={DeleteIngredientPage} />
-                <Route path={"/UpdateIngredientPage"} component={UpdateIngredientPage} />
-                <Route path={"/Signup"} component={Signup} /> 
-                <Route path={"/Login"} component={Login} />
+              <Route exact path={"/"} component={ContentPage} />
+              <Route path={"/home"} component={HomePage} />
+              <Route path={"/yourIngredientsPage"} component={YourIngredientsPage} />
+              <Route path={"/addIngredientPage"} component={AddIngredientPage} />
+              <Route path={"/DeleteIngredientPage"} component={DeleteIngredientPage} />
+              <Route path={"/UpdateIngredientPage"} component={UpdateIngredientPage} />
+              <Route path={"/Signup"} component={Signup} />
+              <Route path={"/Login"} component={Login} />
             </div>
           </div>
         </BrowserRouter>

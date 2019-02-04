@@ -19,9 +19,6 @@ class DeleteIngredient extends Component {
             axios({
                 method: 'delete',
                 url: 'http://localhost:8080/Ingredient/api/ingredient/deleteIngredient/'+this.state.ingredientID+'/'+this.state.userID,
-                // data: {
-                //     ingredientID: this.state.name
-                // }
             });
         }
 
@@ -34,14 +31,8 @@ render() {
                     <input type ="text" placeholder="Enter ID" name="Enter ID" onChange={this.handleInputID} />
                     <br /><button type="submit" name="submit" onClick={this.deleteIngredient}>Delete Ingredient</button>
                     <Text text={this.state.message}/>
-                </label>
-                            
+                </label>             
             </form>
-            <form>
-                
-                </form>
-
-
         </div>
     )
 }
