@@ -13,55 +13,41 @@ class AddIngredient extends Component {
             message: ""
         }
     }
-        updateIngredientID = (event) => {
+    handleInput = (event) => {
+        this.setState({
+            [event.target.id]: event.target.value
+        });
+    }
+    updateIngredient = () => {
+        axios({
+            method: 'post',
+            url: 'http://localhost:8080/Ingredient/api/ingredient/updateIngredient/' + this.state.ingredientID + '/' + this.state.userID,
+            data: {
+                name: this.state.name,
+                weight: this.state.weight,
+            }
+        }).then(response => {
+            // console.log(response.data);
             this.setState({
-                ingredientID: event.target.value
+                message: response.data.message
             });
-        }
+        });
+    }
 
-        updateName = (event) => {
-            this.setState({
-                name: event.target.value
-            });
-        }
-        updateWeight = (event) => {
-            this.setState({
-                weight: event.target.value
-            });
-        }
-
-        updateIngredient = () => {
-            axios({
-                method: 'post',
-                url: 'http://localhost:8080/Ingredient/api/ingredient/updateIngredient/'+this.state.ingredientID,
-                data: {
-                    name: this.state.name, 
-                    weight: this.state.weight,
-                    userID: this.state.userID
-                }
-            });
-            console.log("successfully updated the ingredient with the new information: \n" +
-            " Name: " + this.state.name + "\n" +
-            " Weight: " + this.state.weight);
-            this.setState({
-                message: "successfully updated ingredient"
-            });
-        }
-
-render() {
-    return (
-        <div>
-            <form>
-                <label>
-                    <br /><input type ="text" name="Enter Ingredient ID" placeholder="Enter Ingredient ID" onChange={this.updateIngredientID} />
-                    <br /><input type ="text" name="Enter new Name" placeholder="Enter new Name" onChange={this.updateName} />
-                    <br /><input type ="text" name="Enter new Weight" placeholder="Enter new Weight" onChange={this.updateWeight} />
-                    <br /><button type="button" name="button" onClick={this.updateIngredient}>Update Ingredient</button>
-                    <Text text={this.state.message}/>
-                </label>                            
-            </form>
-        </div>
-    );
-}
+    render() {
+        return (
+            <div>
+                <form>
+                    <label>
+                        <br /><input type="text" name="Enter Ingredient ID" id="ingredientID" placeholder="Enter Ingredient ID" onChange={this.handleInput} />
+                        <br /><input type="text" name="Enter new Name" id="name" placeholder="Enter new Name" onChange={this.handleInput} />
+                        <br /><input type="text" name="Enter new Weight" id="weight" placeholder="Enter new Weight" onChange={this.handleInput} />
+                        <br /><button type="button" name="button" onClick={this.updateIngredient}>Update Ingredient</button>
+                        <Text text={this.state.message} />
+                    </label>
+                </form>
+            </div>
+        );
+    }
 }
 export default AddIngredient;

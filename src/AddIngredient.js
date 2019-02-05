@@ -12,17 +12,11 @@ class AddIngredient extends Component {
             message: ""
         }
     }
-    addName = (event) => {
+    handleInputID = (event) => {
         this.setState({
-            name: event.target.value
+            [event.target.id]: event.target.value
         });
     }
-    addWeight = (event) => {
-        this.setState({
-            weight: event.target.value
-        });
-    }
-
     addIngredient = () => {
         axios({
             method: 'post',
@@ -34,10 +28,12 @@ class AddIngredient extends Component {
             }
         })
             .then(response => {
-                console.log(response.data);
+                // console.log(response.data);
                 this.setState({
                     message: response.data.message
                 });
+            }).catch(function (error) {
+                console.log(error);
             });
     }
     render() {
@@ -45,15 +41,14 @@ class AddIngredient extends Component {
             <div >
                 <form>
                     <label>
-                        <input type="text" placeholder="Enter Name" name="Enter Name" onChange={this.addName} />
-                        <br /><input type="text" placeholder="Enter Weight" name="Enter Weight" onChange={this.addWeight} />
+                        <input type="text" placeholder="Enter Name" name="Enter Name" id="name" onChange={this.handleInputID} />
+                        <br /><input type="text" placeholder="Enter Weight" name="Enter Weight" id="weight" onChange={this.handleInputID} />
                         <br /><button type="button" name="button" onClick={this.addIngredient}>Add Ingredient</button>
                     </label>
                 </form>
                 <div>
                     <Text text={this.state.message} />
                 </div>
-
             </div >
         )
     }

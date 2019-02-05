@@ -46,7 +46,7 @@ public class IngredientDBRepository implements IngredientRepository {
 	@Transactional(REQUIRED)
 	public String deleteIngredient(Long ingredientID, Long userID) {
 		Ingredient ingredientInDB = findAnIngredient(ingredientID);
-		if ((ingredientInDB != null) && (ingredientInDB.getUserID() == userID)) {
+		if ((ingredientInDB != null) && (ingredientInDB.getUserID().equals(userID))) {
 			manager.remove(ingredientInDB);
 			return "{\"message\": \"The ingredient has been sucessfully deleted\"}";
 		}
@@ -59,24 +59,23 @@ public class IngredientDBRepository implements IngredientRepository {
 	}
 	
 	@Transactional(REQUIRED)
-	public String updateIngredient(Long ingredientID, String ingredient) {
-		String output = "{\"message\": \"The ingredient cannot be found\"}";
-		Ingredient anIngredient = findAnIngredient(ingredientID);
-		if (anIngredient!=null) {
+	public String updateIngredient(Long ingredientID, String ingredient, Long userID) {
+		Ingredient ingredientInDB = findAnIngredient(ingredientID);
+		if (ingredientInDB!=null && (ingredientInDB.getUserID().equals(userID))) {
 			Ingredient updatedIngredient = util.getObjectForJSON(ingredient, Ingredient.class);
-			anIngredient.setName(updatedIngredient.getName());
-			anIngredient.setWeight(updatedIngredient.getWeight());
-			output = "{\"message\": \"The ingredient has been sucessfully updated\"}";
+			ingredientInDB.setName(updatedIngredient.getName());
+			ingredientInDB.setWeight(updatedIngredient.getWeight());
+			return "{\"message\": \"The ingredient has been sucessfully updated\"}";
 		}
-		return output;
+		return "{\"message\": \"The ingredient cannot be found\"}";
 	}
 
 	@Override
 	@Transactional
 	public String getUserIngredients(Long userID) {
 		Query query = manager.createQuery("Select a FROM Ingredient a");
-		Collection<Ingredient> ingredients = (Collection<Ingredient>) query.getResultList();
-		Collection<Ingredient> userIngredients = ingredients.stream().filter(ingredient -> ingredient.getUserID().equals(userID)).collect(Collectors.toList());
+		Collection<Ingredient> ingredientsInDB = (Collection<Ingredient>) query.getResultList();
+		Collection<Ingredient> userIngredients = ingredientsInDB.stream().filter(ingredient -> ingredient.getUserID().equals(userID)).collect(Collectors.toList());
 		return util.getJSONForObject(userIngredients);
 	}
 

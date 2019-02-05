@@ -12,7 +12,14 @@ class UpdateIngredientPage extends Component {
     render() {
         if (this.state.validatedUser === null) {
             return (
-                <h1>You to dont have access to this page. Please login or signup</h1>
+                <div>
+                    <ul>
+                        <li><a className="active" href="/Home">Home</a></li>
+                        <li className="loginSignup"><a href="/Login">Login</a></li>
+                        <li className="loginSignup"><a href="/Signup">Signup</a></li>
+                    </ul>
+                    <h1>You to dont have access to this page. Please login or signup</h1>
+                </div >
             );
         }
         return (

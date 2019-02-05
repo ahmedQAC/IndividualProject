@@ -13,7 +13,7 @@ class DeleteIngredient extends Component {
     }
     handleInputID = (event) => {
         this.setState({
-            ingredientID: event.target.value
+            [event.target.id]: event.target.value
         });
     }
     deleteIngredient = () => {
@@ -22,10 +22,12 @@ class DeleteIngredient extends Component {
             url: 'http://localhost:8080/Ingredient/api/ingredient/deleteIngredient/' + this.state.ingredientID + '/' + this.state.userID,
         })
             .then(response => {
-                console.log(response.data);
+                // console.log(response.data);
                 this.setState({
                     message: response.data.message
                 });
+            }).catch(function (error) {
+                console.log(error);
             });
     }
 
@@ -35,7 +37,7 @@ class DeleteIngredient extends Component {
                 <form>
                     <label>
 
-                        <input type="text" placeholder="Enter ID" name="Enter ID" onChange={this.handleInputID} />
+                        <input type="text" placeholder="Enter ID" name="Enter ID" id="ingredientID" onChange={this.handleInputID} />
                         <br /><button type="button" name="submit" onClick={this.deleteIngredient}>Delete Ingredient</button>
                     </label>
                 </form>

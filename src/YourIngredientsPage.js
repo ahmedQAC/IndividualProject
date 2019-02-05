@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
-import Text from './Text.js';
 import GetAllIngredients from './GetAllIngredients.js'
 
 class YourIngredientsPage extends Component {
-    constructor(){
+    constructor() {
         super();
         this.state = {
             validatedUser: JSON.parse(sessionStorage.getItem("User"))
@@ -12,7 +11,14 @@ class YourIngredientsPage extends Component {
     render() {
         if (this.state.validatedUser === null) {
             return (
-                <h1>You to dont have access to this page. Please login or signup</h1>
+                <div>
+                    <ul>
+                        <li><a className="active" href="/Home">Home</a></li>
+                        <li className="loginSignup"><a href="/Login">Login</a></li>
+                        <li className="loginSignup"><a href="/Signup">Signup</a></li>
+                    </ul>
+                    <h1>You to dont have access to this page. Please login or signup</h1>
+                </div >
             );
         }
         return (
@@ -29,7 +35,6 @@ class YourIngredientsPage extends Component {
                 </ul>
                 <div>
                     <br /><br />
-                    <Text text="Here is a list of all your ingredients" />
                     <GetAllIngredients />
                 </div>
             </div>

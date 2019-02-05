@@ -10,7 +10,7 @@ public interface IngredientService {
 	
 	String addIngredient(String ingredient);
 	
-	String updateIngredient(Long ingredientID, String ingredient);
+	String updateIngredient(Long ingredientID, String ingredient, Long userID);
 	
 	String deleteIngredient(Long ingredientID, Long userID);
 	

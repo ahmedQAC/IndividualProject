@@ -37,11 +37,11 @@ public class IngredientEndpoint {
 		return service.deleteIngredient(ingredientID, userID);
 	}
 	
-	@Path("/updateIngredient/{ingredientID}")
+	@Path("/updateIngredient/{ingredientID}/{userID}")
 	@POST
 	@Produces({ "application/json" })
-	public String updateIngredient (@PathParam("ingredientID") Long ingredientID, String ingredient) {
-		return service.updateIngredient(ingredientID, ingredient);
+	public String updateIngredient (@PathParam("ingredientID") Long ingredientID, String ingredient, @PathParam("userID") Long userID) {
+		return service.updateIngredient(ingredientID, ingredient, userID);
 	}
 	
 	@Path("/getUserIngredients/{userID}")

@@ -13,7 +13,6 @@ public class Ingredient {
 	private Long ingredientID;
 	private String name;
 	private String weight;
-	
 	private Long userID;
 	
 	public Ingredient() {
