@@ -28,7 +28,7 @@ class Signup extends Component {
                 message: "Please fill in the empty fields"
             });
         }
-        else if (this.state.password !== this.state.confirmPassword){
+        else if (this.state.password !== this.state.confirmPassword) {
             this.setState({
                 message: "Please make sure that the passwords match"
             });
@@ -42,8 +42,16 @@ class Signup extends Component {
                     password: this.state.password,
                     ingredients: this.state.ingredients
                 }
+            }).then(response => {
+                // console.log(response.data);
+                this.setState({
+                    message: response.data.message
+                });
+            }).catch(function (error) {
+                console.log(error);
+                // this.props.history.push("/Login");
             });
-            this.props.history.push("/Login");
+
         }
     }
     render() {
@@ -63,17 +71,22 @@ class Signup extends Component {
                             <label>
                                 <br /> <input type="text" id="username" placeholder="Enter username" onChange={this.handleInput} />
                                 <br /> <input type="password" id="password" placeholder="Enter password" onChange={this.handleInput} />
-                                <br /> <input type="password" id="confirmPassword" placeholder="Confirm password" onChange={this.handleInput} /> 
+                                <br /> <input type="password" id="confirmPassword" placeholder="Confirm password" onChange={this.handleInput} />
                                 <br /> <button type="button" onClick={this.addUser}>Create user</button>
                             </label>
                         </form>
                     </div>
-                     <div>
-                      <h5><Text text={this.state.message} /></h5>
-                    </div> 
+                    <div>
+                        <h5><Text text={this.state.message} /></h5>
+                    </div>
                 </div>
             );
         }
+        return (
+            <div>
+                {this.props.history.push("/Home")}
+            </div>
+        );
     }
 }
 export default Signup;

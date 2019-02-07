@@ -25,7 +25,7 @@ class Login extends Component {
             url: 'http://localhost:8080/Ingredient/api/user/getAllUsers',
             responseType: 'json'
         }).then(response => {
-            console.log(response.data);
+            // console.log(response.data);
             this.setState({
                 users: response.data
             });
@@ -55,7 +55,7 @@ class Login extends Component {
             return (
                 <div>
                     <ul>
-                        <li><a href="/home">Home</a></li>
+                        <li><a href="/Home">Home</a></li>
                         <li className="loginSignup"><a className="active" href="/Login">Login</a></li>
                         <li className="loginSignup"><a href="/Signup">Signup</a></li>
                         {/* <li><a href="Food">Food</a></li>
