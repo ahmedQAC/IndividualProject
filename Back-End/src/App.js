@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
-import Text from './Text.js';
 import { BrowserRouter, Route } from 'react-router-dom';
-import HomePage from './HomePage';
-import YourIngredientsPage from './YourIngredientsPage';
-import ContentPage from './ContentPage.js';
-import AddIngredientPage from './AddIngredientPage.js';
-import DeleteIngredientPage from './DeleteIngredientPage.js';
-import UpdateIngredientPage from './UpdateIngredientPage.js';
-import Signup from './Signup.js';
-import Login from './Login.js';
+import Text from './Components/Text.js';
+import HomePage from './Components/HomePage';
+import YourIngredientsPage from './Components/YourIngredientsPage';
+import ContentPage from './Components/ContentPage.js';
+import AddIngredientPage from './Components/AddIngredientPage.js';
+import DeleteIngredientPage from './Components/DeleteIngredientPage.js';
+import UpdateIngredientPage from './Components/UpdateIngredientPage.js';
+import Signup from './Components/Signup.js';
+import Login from './Components/Login.js';
 
 class App extends Component {
   render() {

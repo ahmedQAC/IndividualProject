@@ -30,9 +30,9 @@ class AddIngredient extends Component {
             // console.log(response.data);
             this.setState({
                 message: response.data.message
-            }).catch(function (error) {
-                console.log(error);
             });
+        }).catch(function (error) {
+            console.log(error);
         });
     }
 
