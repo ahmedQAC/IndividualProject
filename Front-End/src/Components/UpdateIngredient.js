@@ -20,7 +20,7 @@ class AddIngredient extends Component {
     }
     updateIngredient = () => {
         //const LOCALHOST = 'http://localhost';
-        const AZURE_IP_ADDRESS = '51.145.9.185';
+        const AZURE_IP_ADDRESS = 'recipe.uksouth.cloudapp.azure.com';
         axios({
             method: 'post',
             url: AZURE_IP_ADDRESS + ':8080/Ingredient/api/ingredient/updateIngredient/' + this.state.ingredientID + '/' + this.state.userID,
