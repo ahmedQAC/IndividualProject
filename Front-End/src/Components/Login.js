@@ -21,7 +21,7 @@ class Login extends Component {
 
     login = () => {
         //const LOCALHOST = 'http://localhost';
-        const AZURE_IP_ADDRESS = 'recipe.uksouth.cloudapp.azure.com';
+        const AZURE_IP_ADDRESS = 'http://recipe.uksouth.cloudapp.azure.com';
         axios({
             method: 'get',
             url: AZURE_IP_ADDRESS + ':8080/Ingredient/api/user/getAllUsers',

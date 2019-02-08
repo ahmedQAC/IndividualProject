@@ -18,7 +18,7 @@ class DeleteIngredient extends Component {
     }
     deleteIngredient = () => {
         //const LOCALHOST = 'http://localhost';
-        const AZURE_IP_ADDRESS = 'recipe.uksouth.cloudapp.azure.com';
+        const AZURE_IP_ADDRESS = 'http://recipe.uksouth.cloudapp.azure.com';
         axios({
             method: 'delete',
             url: AZURE_IP_ADDRESS + ':8080/Ingredient/api/ingredient/deleteIngredient/' + this.state.ingredientID + '/' + this.state.userID,

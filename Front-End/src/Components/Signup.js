@@ -35,7 +35,7 @@ class Signup extends Component {
         }
         else {
             //const LOCALHOST = 'http://localhost';
-            const AZURE_IP_ADDRESS = 'recipe.uksouth.cloudapp.azure.com';
+            const AZURE_IP_ADDRESS = 'http://recipe.uksouth.cloudapp.azure.com';
             axios({
                 method: 'post',
                 url: AZURE_IP_ADDRESS + ':8080/Ingredient/api/user/createUser',
