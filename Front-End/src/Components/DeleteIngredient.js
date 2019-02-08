@@ -17,9 +17,11 @@ class DeleteIngredient extends Component {
         });
     }
     deleteIngredient = () => {
+        //const LOCALHOST = 'http://localhost';
+        const AZURE_IP_ADDRESS = '51.145.9.185';
         axios({
             method: 'delete',
-            url: 'http://localhost:8080/Ingredient/api/ingredient/deleteIngredient/' + this.state.ingredientID + '/' + this.state.userID,
+            url: AZURE_IP_ADDRESS + ':8080/Ingredient/api/ingredient/deleteIngredient/' + this.state.ingredientID + '/' + this.state.userID,
         })
             .then(response => {
                 // console.log(response.data);

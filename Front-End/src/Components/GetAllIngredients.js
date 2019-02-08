@@ -12,9 +12,11 @@ class getAllIngredients extends Component {
         }
     }
     getAllIngredients = () => {
+        //const LOCALHOST = 'http://localhost';
+        const AZURE_IP_ADDRESS = '51.145.9.185';
         axios({
             method: 'get',
-            url: 'http://localhost:8080/Ingredient/api/ingredient/getUserIngredients/' + this.state.userID,
+            url: AZURE_IP_ADDRESS + ':8080/Ingredient/api/ingredient/getUserIngredients/' + this.state.userID,
             responseType: 'json'
         }).then(response => {
             // console.log(response.data);

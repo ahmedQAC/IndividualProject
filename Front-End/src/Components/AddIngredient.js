@@ -18,9 +18,11 @@ class AddIngredient extends Component {
         });
     }
     addIngredient = () => {
+        //const LOCALHOST = 'http://localhost';
+        const AZURE_IP_ADDRESS = '51.145.9.185';
         axios({
             method: 'post',
-            url: 'http://localhost:8080/Ingredient/api/ingredient/addIngredient',
+            url: AZURE_IP_ADDRESS + ':8080/Ingredient/api/ingredient/addIngredient',
             data: {
                 name: this.state.name,
                 weight: this.state.weight,
@@ -28,7 +30,6 @@ class AddIngredient extends Component {
             }
         })
             .then(response => {
-                // console.log(response.data);
                 this.setState({
                     message: response.data.message
                 });

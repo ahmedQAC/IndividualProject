@@ -20,9 +20,11 @@ class Login extends Component {
     }
 
     login = () => {
+        //const LOCALHOST = 'http://localhost';
+        const AZURE_IP_ADDRESS = '51.145.9.185';
         axios({
             method: 'get',
-            url: 'http://localhost:8080/Ingredient/api/user/getAllUsers',
+            url: AZURE_IP_ADDRESS + ':8080/Ingredient/api/user/getAllUsers',
             responseType: 'json'
         }).then(response => {
             // console.log(response.data);
@@ -47,7 +49,7 @@ class Login extends Component {
     logout = () => {
         sessionStorage.clear();
         this.props.history.push("/Login")
-        
+
     }
 
     render() {
