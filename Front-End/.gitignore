@@ -1,15 +1,6 @@
 
-package.json
-
-
-*package.json
-
-
 *.json
 package-lock.json
-
-
-*package-lock.json
 
 
 README.md
