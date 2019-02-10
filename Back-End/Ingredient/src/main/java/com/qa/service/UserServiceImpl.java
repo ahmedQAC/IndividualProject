@@ -49,18 +49,6 @@ public class UserServiceImpl implements UserService {
 		}
 		else if (inputUser.getPassword().matches("((?=.*[a-z])(?=.*[@#$%!£^&*()-=?_+])(?=.*[A-Z]).{6,16})") == false) {
 			return "{\"message\": \"password must contain lowercase, one special character, one uppercase and be between 6 to 16 characters\"}";
-//				if(inputUser.getPassword().matches("[a-z]+") == false) {
-//					return "{\"message\": \"The password must contain at least one lowercase letter\"}";
-//				}
-//				else if (inputUser.getPassword().matches("[@#$%]+") == false) {
-//					return "{\"message\": \"The password must contain at least one special character such as @, #, $, ! or %  \"}";
-//				}
-//				else if (inputUser.getPassword().matches("[A-Z]+") == false) {
-//					return "{\"message\": \"The password must contain at least one uppercase letter\"}";
-//				}
-//				else if (inputUser.getPassword().matches("{6,16}+") == false) {
-//					return "{\"message\": \"The password must be between 6 to 16 characters\"}";
-//				}
 		}
 		return repo.createUser(user);
 	}
